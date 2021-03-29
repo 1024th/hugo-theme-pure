@@ -3257,7 +3257,7 @@ body {
 body {
   padding-right: 0 !important;
   font-family: "Source Han Sans","Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.57143;
   color: #333333;
   background-color: #fff;
@@ -6258,6 +6258,10 @@ body.no-sidebar .sidebar {
 
 .footer .copyright a:hover {
   color: #0a6ebd;
+}
+
+.article-footer {
+  overflow-wrap: anywhere;
 }
 
 /**
