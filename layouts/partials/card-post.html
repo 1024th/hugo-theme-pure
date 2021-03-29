@@ -11,7 +11,7 @@
     {{- with .Params.tags }}
     <div class="panel-footer">
         {{- range first 3 .  }}
-        <a href="{{ "tags/" | absURL }}{{ . | urlize }}" class="label label-default mb">{{ . }}</a>
+        <a href="{{ "tags/" | relURL }}{{ . | urlize }}" class="label label-default mb">{{ . }}</a>
         {{- end }}
         {{- if gt (len .) 3 }}
         <span class="label label-default mb">···</span>

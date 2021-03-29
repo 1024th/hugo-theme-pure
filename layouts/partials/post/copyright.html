@@ -1,10 +1,14 @@
 {{- if .Site.Params.enablePostCopyright }}
 <blockquote class="mt-2x">
   <ul class="post-copyright list-unstyled">
-    <li class="post-copyright-link hidden-xs">
+    <li class="post-copyright-author">
+      <strong>{{ T "copyright_author" }}: </strong>
+        {{ .Site.Params.profile.author }}
+    </li>
+    <!-- <li class="post-copyright-link hidden-xs">
       <strong>{{ T "copyright_post" }}: </strong>
       <a href="{{- .Permalink }}" title="{{- .Title }}" target="_blank" rel="external">{{- .Permalink }}</a>
-    </li>
+    </li> -->
     <li class="post-copyright-license">
       <strong>{{ T "copyright_license" }}: </strong>
 {{- if .Site.Params.copyright_link }}
@@ -22,7 +26,7 @@
     <figure class="media">
       <div class="media-left">
         <a href="{{- $profile.follow }}" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="{{- $profile.avatar | absURL }}" class="img-rounded w-full" alt="">
+          <img src="{{- $profile.avatar | relURL }}" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
