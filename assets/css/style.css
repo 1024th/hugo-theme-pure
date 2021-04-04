@@ -3308,6 +3308,10 @@ textarea:active,
   outline: none !important;
 }
 
+.katex-display > .katex {
+  overflow-x: auto;
+}
+
 /*------------------ Fluidity response ------------------------------*/
 
 img,
