@@ -3309,8 +3309,13 @@ textarea:active,
 }
 
 .katex-display > .katex {
+  padding: 2px 0px;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.katex::-webkit-scrollbar{
+  height: 6px;
 }
 
 /*------------------ Fluidity response ------------------------------*/
