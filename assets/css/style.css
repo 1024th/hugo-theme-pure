@@ -7012,9 +7012,9 @@ body.okayNav-loaded {
   bottom: 10px;
   left: 50%;
   margin-left: -25px;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   padding: 0;
   border-radius: 50%;
   font-size: 18px;
@@ -7034,8 +7034,8 @@ body.okayNav-loaded {
 }
 
 .btn-donate.btn-fancy span {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   padding: 0;
 }
 
