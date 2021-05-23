@@ -3329,6 +3329,13 @@ svg {
   height: auto;
 }
 
+img,
+canvas,
+iframe,
+video {
+    max-width: 100%;
+}
+
 /*------------------ clear ------------------------------*/
 
 .clear {
