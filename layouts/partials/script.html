@@ -1,6 +1,10 @@
 {{ if or .Site.Params.enableMathJax .Params.math }}
 {{ partial "math.html" . }}
 {{ end }}
+{{ if (findRE "<pre" .Content 1) }}
+  {{- $codecopy := resources.Get "js/codecopy.js" | resources.Minify | resources.Fingerprint}}
+    <script src="{{- $codecopy.Permalink }}"></script>
+{{ end }}
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
     window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
