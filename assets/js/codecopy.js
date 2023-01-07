@@ -1,62 +1,32 @@
-// document.querySelectorAll('pre > code').forEach(function (codeBlock) {
-//     var button = document.createElement('button');
-//     button.className = 'copy-code-button';
-//     button.type = 'button';
-//     button.innerText = 'Copy';
+const copyButtonLabel = "Copy";
 
-//     var pre = codeBlock.parentNode;
-//     if (pre.parentNode.classList.contains('highlight')) {
-//         var highlight = pre.parentNode;
-//         highlight.parentNode.insertBefore(button, highlight);
-//     } else {
-//         pre.parentNode.insertBefore(button, pre);
-//     }
-// });
+// use a class selector if available
+let blocks = document.querySelectorAll("pre");
 
-function addCopyButtons(clipboard) {
-    document.querySelectorAll('pre > code').forEach(function (codeBlock) {
-        var button = document.createElement('button');
-        button.className = 'copy-code-button';
-        button.type = 'button';
-        button.innerText = 'Copy';
+blocks.forEach((block) => {
+  // only add button if browser supports Clipboard API
+  if (navigator.clipboard) {
+    let button = document.createElement("button");
 
-        button.addEventListener('click', function () {
-            clipboard.writeText(codeBlock.innerText).then(function () {
-                /* Chrome doesn't seem to blur automatically,
-                   leaving the button in a focused state. */
-                button.blur();
+    button.innerText = copyButtonLabel;
+    block.appendChild(button);
 
-                button.innerText = 'Copied!';
-
-                setTimeout(function () {
-                    button.innerText = 'Copy';
-                }, 2000);
-            }, function (error) {
-                button.innerText = 'Error';
-            });
-        });
-
-        var pre = codeBlock.parentNode;
-        if (pre.parentNode.classList.contains('highlight')) {
-            var highlight = pre.parentNode;
-            highlight.parentNode.insertBefore(button, highlight);
-        } else {
-            pre.parentNode.insertBefore(button, pre);
-        }
+    button.addEventListener("click", async () => {
+      await copyCode(block, button);
     });
+  }
+});
+
+async function copyCode(block, button) {
+  let code = block.querySelector("code");
+  let text = code.innerText;
+
+  await navigator.clipboard.writeText(text);
+
+  // visual feedback that task is completed
+  button.innerText = "Code Copied";
+
+  setTimeout(() => {
+    button.innerText = copyButtonLabel;
+  }, 700);
 }
-
-if (navigator && navigator.clipboard) {
-    addCopyButtons(navigator.clipboard);
-} else {
-    var script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/clipboard-polyfill/2.7.0/clipboard-polyfill.promise.js';
-    script.integrity = 'sha256-waClS2re9NUbXRsryKoof+F9qc1gjjIhc2eT7ZbIv94=';
-    script.crossOrigin = 'anonymous';
-    script.onload = function() {
-        addCopyButtons(clipboard);
-    };
-
-    document.body.appendChild(script);
-}
-

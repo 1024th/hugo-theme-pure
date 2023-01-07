@@ -5635,6 +5635,28 @@ pre {
   /* padding: 32px 10px 0 10px; */
   border-radius: 4px 0px 4px 4px;
 }
+
+pre button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  font-size: 0.9rem;
+  padding: 0.15rem 0.5rem;
+  background-color: #e9e9ed70;
+
+  border: ridge 1px #7b7b7c80;
+  border-radius: 5px;
+  text-shadow: #bcbabb80 0 0 2px;
+}
+
+pre button:hover {
+  color: #333;
+  cursor: pointer;
+  background-color: #bcbabb80;
+}
+
+
 /*
 .highlight .gutter pre,
 .gist .gist-file .gist-data .line-numbers {
